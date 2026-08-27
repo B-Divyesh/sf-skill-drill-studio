@@ -1,8 +1,10 @@
 # Skill Drill Studio — build handoff
 
-## Independent verification outcome (2026-08-27): FAIL
+## Cache-policy repair verification (2026-08-27): PASS
 
-Candidate `bf9faa474440ac78f8b86222ecab7535f4cfe45d` was independently tested from a clean checkout and matched byte-for-byte to https://skill-drill-studio.sociobot.in. Product flows, tests, build, offline reload, accessibility, privacy/security policy, and bundle budgets passed. **Do not release this candidate as verified:** the live content-hashed JS and CSS each return `Cache-Control: public, must-revalidate, max-age=30`, rather than the contract-required long-lived immutable cache policy. This is a severity-high deployment/configuration defect. Full evidence and the exact retest are in `.factory/verification-1.md`.
+Repair commit `3630d92` fixes the release-blocking cache contract reported for candidate `bf9faa474440ac78f8b86222ecab7535f4cfe45d`. `public/staticwebapp.config.json` now gives only Vite's content-hashed `/assets/*.{js,css}` bundles `Cache-Control: public, max-age=31536000, immutable`. The service worker and all app-shell/fallback requests receive `Cache-Control: public, max-age=0, must-revalidate`, so a new deployment or worker is discovered promptly.
+
+The built `dist/` was deployed through `/opt/fleet/lib/deploy-static.sh skill-drill-studio dist` to the **Standard** Azure Static Web App. Both `https://skill-drill-studio.sociobot.in` and the Azure default hostname returned the expected immutable policy for `assets/index-FmtXtAii.js` and `assets/index-DKb9jCgy.css`, and the revalidation policy for `/` and `/sw.js`.
 
 ## Delivered
 
@@ -24,7 +26,7 @@ npm test
 npm run build
 ```
 
-The exact deployment command is `npm run build`. Output is `./dist`, and `dist/index.html` is present at its root. Azure Static Web Apps navigation fallback and security headers are in `public/staticwebapp.config.json`.
+The exact deployment command is `npm run build`. Output is `./dist`, and `dist/index.html` is present at its root. Azure Static Web Apps navigation fallback, security headers, and the cache policy are in `public/staticwebapp.config.json`. `npm test` also rebuilds `dist` and verifies that every generated JS/CSS artifact is content-hashed before it may receive the immutable cache rule.
 
 Optional full browser suite:
 
@@ -33,12 +35,15 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-## Builder verification (2026-08-27; superseded by independent FAIL above)
+## Repair verification (2026-08-27)
 
-- `npm test`: 5 deterministic core/schema tests passed.
+- Clean `npm ci`: completed with 0 audit vulnerabilities.
+- `npm test`: 5 deterministic core/schema tests passed, then the generated-artifact cache-policy test rebuilt the app and confirmed 2 content-hashed JS/CSS bundles and the SWA header rules.
 - `npm run build`: passed TypeScript strict checking and Vite production build.
 - `npm run test:e2e`: 6 passed, 2 intentionally skipped by project (desktop-only offline check and mobile-only viewport check). Covers desktop + 390 px author-to-learner flow, command completion, hotspot keyboard operation, console errors, local offline shell, and axe scans on home, privacy, and editor screens.
-- Factory `verify-url.sh`: HTTP 200; title present; `lang="en"`; one `h1`; main landmark; zero missing image alts; zero unlabeled buttons; zero console/page errors. Machine-readable output is in `.factory/evidence/verify.json`.
+- Live factory `verify-url.sh`: HTTP 200; title present; `lang="en"`; one `h1`; main landmark; zero missing image alts; zero unlabeled buttons; zero console/page errors. Machine-readable output is in `.factory/evidence/verify.json`.
+- Live Playwright axe scan: 0 serious or critical violations. (The standalone axe CLI could not start Chrome in this container sandbox; the repository's installed Playwright axe integration was used instead.)
+- Live header checks on both the custom and Azure host: fingerprinted JS/CSS `public, max-age=31536000, immutable`; `/` and `/sw.js` `public, max-age=0, must-revalidate`; CSP and privacy/security headers remained present.
 - Lighthouse mobile production preview: Performance **100**, Accessibility **100**, Best Practices **100**, SEO **100**; LCP **1.8 s**, CLS **0**, total blocking time **0 ms**. Lab hardware may vary.
 - Production payload: initial app JS **30.81 KB** / **10.83 KB gzip**; CSS **20.11 KB** / **5.35 KB gzip**; largest hero source **64 KB**; self-hosted fonts **108 KB** total.
 - Visual review completed using full-page desktop (1440 px) and mobile (390 px) screenshots.
