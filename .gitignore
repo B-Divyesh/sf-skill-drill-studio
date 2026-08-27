@@ -3,4 +3,8 @@ dist/
 .env
 *.log
 graphify-out/
+test-results/
+playwright-report/
+.factory/evidence/*.png
+.factory/evidence/index.html
 .DS_Store
