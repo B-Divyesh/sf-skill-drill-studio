@@ -1,5 +1,9 @@
 # Skill Drill Studio — build handoff
 
+## Independent verification outcome (2026-08-27): FAIL
+
+Candidate `bf9faa474440ac78f8b86222ecab7535f4cfe45d` was independently tested from a clean checkout and matched byte-for-byte to https://skill-drill-studio.sociobot.in. Product flows, tests, build, offline reload, accessibility, privacy/security policy, and bundle budgets passed. **Do not release this candidate as verified:** the live content-hashed JS and CSS each return `Cache-Control: public, must-revalidate, max-age=30`, rather than the contract-required long-lived immutable cache policy. This is a severity-high deployment/configuration defect. Full evidence and the exact retest are in `.factory/verification-1.md`.
+
 ## Delivered
 
 - A finished Vite + vanilla TypeScript static product for ordered-step, exact-command, and image-hotspot drills.
@@ -29,7 +33,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-## Verification (2026-08-27)
+## Builder verification (2026-08-27; superseded by independent FAIL above)
 
 - `npm test`: 5 deterministic core/schema tests passed.
 - `npm run build`: passed TypeScript strict checking and Vite production build.
