@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "test": "vitest run src",
+    "test:unit": "vitest run src",
+    "test:artifacts": "npm run build && node scripts/test-generated-artifacts.mjs",
+    "test": "npm run test:unit && npm run test:artifacts",
     "test:e2e": "playwright test"
   },
   "devDependencies": {
