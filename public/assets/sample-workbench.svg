@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-labelledby="title desc">
+  <title id="title">Field station workbench</title><desc id="desc">An illustrated workbench with a radio, notebook, compass and lamp.</desc>
+  <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#17393d"/><stop offset="1" stop-color="#0b1b1e"/></linearGradient></defs>
+  <rect width="1000" height="600" fill="url(#sky)"/><circle cx="835" cy="115" r="62" fill="#f3b552" opacity=".18"/>
+  <path d="M0 310 120 225l108 55 122-108 120 115 127-79 125 89 115-69 163 95v277H0Z" fill="#10272a" stroke="#345054" stroke-width="8"/>
+  <path d="M0 420h1000v180H0z" fill="#674c32"/><path d="M0 444h1000M190 420l-15 180M610 420l12 180" stroke="#31281e" stroke-width="8"/>
+  <g transform="translate(100 314)"><rect width="205" height="128" rx="16" fill="#1b2d2f" stroke="#b9c7c2" stroke-width="7"/><circle cx="58" cy="66" r="32" fill="#081214" stroke="#70d6c1" stroke-width="6"/><path d="M126 35h53M126 61h53M126 87h34" stroke="#f3b552" stroke-width="8"/><path d="m36 0 12-54h105" fill="none" stroke="#b9c7c2" stroke-width="8"/></g>
+  <g transform="translate(375 345) rotate(-5)"><rect width="190" height="145" rx="6" fill="#f3eee1"/><path d="M22 32h145M22 62h118M22 92h145M22 122h88" stroke="#61736e" stroke-width="6"/><path d="M95 0v145" stroke="#d2b67f" stroke-width="4"/></g>
+  <g transform="translate(650 356)"><circle cx="72" cy="72" r="70" fill="#142729" stroke="#d9bd7a" stroke-width="8"/><circle cx="72" cy="72" r="48" fill="#e7dfcb"/><path d="m72 31 17 52-17 30-17-30Z" fill="#ff8c78"/><text x="72" y="24" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#e7dfcb">N</text></g>
+  <g transform="translate(835 260)"><path d="M35 0h70l20 92H15Z" fill="#f3b552" opacity=".9"/><path d="M70 92v122M25 214h90" stroke="#b9c7c2" stroke-width="12"/><circle cx="70" cy="94" r="95" fill="#f3b552" opacity=".08"/></g>
+</svg>

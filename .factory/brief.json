@@ -1,0 +1,12 @@
+{
+  "slug": "skill-drill-studio",
+  "title": "Skill Drill Studio",
+  "artifact_class": "static-web",
+  "smallest_useful_product": "A static web authoring tool for ordered steps, exact command input, and image hotspot drills with deterministic checks and portable JSON files.",
+  "monetization": "free",
+  "constraints": [
+    "Never execute learner-entered commands",
+    "Sanitize authored content and media",
+    "Provide keyboard paths and non-color-only feedback"
+  ]
+}
