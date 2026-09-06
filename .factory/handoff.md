@@ -2,7 +2,7 @@
 
 ## Result: PASS
 
-**Implementation SHA:** `884fde180f7741e448d493237389d39054ca0efa`
+**Implementation SHA:** `884fde10d0b0270b5e2442fc88d0845c9c4d7e9b`
 
 **Documentation revision:** this handoff and the reusable live-check script are committed after the implementation SHA. The exact documentation SHA is reported with the final evidence.
 
@@ -59,7 +59,7 @@ npm run test:e2e
 
 ## Production verification
 
-- Deployed the build from `884fde180f7741e448d493237389d39054ca0efa` to the existing production Static Web App.
+- Deployed the build from `884fde10d0b0270b5e2442fc88d0845c9c4d7e9b` to the existing production Static Web App.
 - Fresh desktop browser: first-screen job, audience, action, and facts present; one-click demo contained three formats and two prior runs; wrong and correct feedback worked; reset restored two runs; exit removed demo keys; real sentinel storage was unchanged.
 - Fresh 390 × 844 browser: no horizontal overflow (`390` scroll width and client width); landing and demo screenshots reviewed; demo banner and three samples were visible.
 - Browser capture: no console errors, page errors, or cross-origin runtime requests.
