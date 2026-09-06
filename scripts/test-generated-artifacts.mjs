@@ -35,7 +35,7 @@ assert.equal(
 );
 assert.equal(route('/*')?.statusCode, 404, 'unknown routes must produce HTTP 404');
 assert.equal(config.responseOverrides?.['404']?.rewrite, '/404.html', 'HTTP 404 must render the designed page');
-assert.ok(config.navigationFallback?.exclude?.includes('/404.html'), 'the designed 404 page must bypass the SPA fallback');
+assert.ok(config.navigationFallback?.exclude?.includes('/*'), 'explicit routes must bypass the broad SPA fallback so unknown URLs remain 404');
 assert.ok(routes.every((item) => !(item.rewrite && item.statusCode)), 'a route must not combine rewrite and statusCode');
 
 const generated = filesBelow(join(dist, 'assets')).filter((file) => /\.(?:js|css)$/.test(file));
