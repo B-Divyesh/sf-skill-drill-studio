@@ -1,4 +1,28 @@
-# Skill Drill Studio — repair 2 handoff
+# Skill Drill Studio — verification 3 handoff
+
+## Current result: FAIL
+
+**Implementation SHA:** `884fde10d0b0270b5e2442fc88d0845c9c4d7e9b`
+
+**Documentation baseline:** `e0d3b2330408413d2c322b2b5ed1468425073698`
+
+**Verification report:** `.factory/verification-3.md`
+
+Independent verification reran all ten declared claim commands from a clean checkout, `npm test`, build, browser suite, live desktop/phone demo flow, URL/accessibility checks, routing, metadata, privacy-request capture, and candidate parity. All passed except one low-severity ordered-step boundary defect: at 12 steps, **Add a step** is still enabled but silently does nothing. The product therefore does not meet the zero-findings release rule.
+
+To verify after repair:
+
+```sh
+npm ci
+npx playwright install chromium
+npm test
+npm run build
+npm run test:e2e -- --workers=1
+```
+
+Then run every command in `.factory/claims.json` independently and confirm that a thirteenth **Add a step** action is disabled or announces the 12-step limit. Recheck the live `/demo` reset/exit storage isolation and unknown-route HTTP 404.
+
+## Repair 2 history
 
 ## Result: PASS
 
