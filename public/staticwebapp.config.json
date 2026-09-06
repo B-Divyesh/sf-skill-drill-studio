@@ -1,5 +1,5 @@
 {
-  "navigationFallback": { "rewrite": "/index.html", "exclude": ["/assets/*", "/*.svg", "/*.png", "/*.jpg", "/*.js", "/*.css", "/*.txt", "/*.xml"] },
+  "navigationFallback": { "rewrite": "/index.html", "exclude": ["/404.html", "/assets/*", "/*.svg", "/*.png", "/*.jpg", "/*.js", "/*.css", "/*.txt", "/*.xml"] },
   "routes": [
     {
       "route": "/assets/*.{js,css}",
