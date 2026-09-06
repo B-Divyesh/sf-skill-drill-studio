@@ -1,5 +1,5 @@
-const CACHE = 'skill-drill-studio-v2';
-const SHELL = ['/', '/index.html', '/assets/night-workshop-800.webp', '/favicon.svg'];
+const CACHE = 'skill-drill-studio-v3';
+const SHELL = ['/', '/demo', '/index.html', '/assets/night-workshop-800.webp', '/assets/sample-workbench.svg', '/assets/fonts/atkinson-regular.woff2', '/assets/fonts/atkinson-bold.woff2', '/assets/fonts/fraunces-semibold.woff2', '/favicon.svg'];
 self.addEventListener('install', (event) => event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', (event) => event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', (event) => {

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "deterministic-feedback",
+    "claim": "Each answer gets clear, repeatable feedback.",
+    "where": "landing audience sentence and drill player",
+    "test": "npm run test:claims -- --grep @claim:deterministic-feedback",
+    "sandbox": "fresh browser context at /demo; submit the same wrong command twice, then the correct command"
+  },
+  {
+    "id": "free-no-account",
+    "claim": "Skill Drill Studio is free to use and needs no account.",
+    "where": "landing facts, README, privacy, and terms",
+    "test": "npm run test:claims -- --grep @claim:free-no-account",
+    "sandbox": "leave /demo for a clean real workspace and create a complete drill without authentication or payment"
+  },
+  {
+    "id": "commands-not-run",
+    "claim": "Command answers are compared as text and never run.",
+    "where": "landing facts, editor, player, README, privacy, and terms",
+    "test": "npm run test:claims -- --grep @claim:commands-not-run",
+    "sandbox": "submit command-like text in /demo and assert it remains inert, gets comparison feedback, and causes no matching request"
+  },
+  {
+    "id": "browser-storage",
+    "claim": "Drills, uploaded images, and practice history stay in the browser; demo data stays separate and is discarded on exit.",
+    "where": "landing, demo banner, privacy, README",
+    "test": "npm run test:claims -- --grep @claim:browser-storage",
+    "sandbox": "seed sentinel real keys, edit a demo hotspot with an image, practise it, assert only demo: keys change, then leave demo"
+  },
+  {
+    "id": "json-sharing",
+    "claim": "A drill exports as portable JSON that another browser workspace can import.",
+    "where": "landing, how it works, README",
+    "test": "npm run test:claims -- --grep @claim:json-sharing",
+    "sandbox": "export a sample from /demo, parse its data, leave demo, import it, and assert the drill is saved"
+  },
+  {
+    "id": "keyboard-drills",
+    "claim": "All three drill formats can be completed with a keyboard.",
+    "where": "README and drill controls",
+    "test": "npm run test:claims -- --grep @claim:keyboard-drills",
+    "sandbox": "fresh /demo; complete ordered, command, and hotspot samples using focus, Enter, typing, and arrow keys"
+  },
+  {
+    "id": "no-tracking",
+    "claim": "The app uses no analytics, ads, or tracking tools.",
+    "where": "landing privacy section, footer, privacy, README",
+    "test": "npm run test:claims -- --grep @claim:no-tracking",
+    "sandbox": "capture every request and cookie through a completed /demo command drill; allow only the product origin"
+  },
+  {
+    "id": "image-limits",
+    "claim": "Hotspot uploads accept PNG, JPEG, or WebP files up to 2 MB and reject other formats or larger files.",
+    "where": "hotspot editor and README",
+    "test": "npm run test:claims -- --grep @claim:image-limits",
+    "sandbox": "fresh workspace reached from /demo; try SVG, a 2,000,001-byte PNG, and a valid small PNG"
+  },
+  {
+    "id": "offline-reload",
+    "claim": "The app reloads offline after the first online visit.",
+    "where": "README",
+    "test": "npm run test:claims -- --grep @claim:offline-reload",
+    "sandbox": "new browser context at /demo; wait for the service worker, reload online, set the context offline, then reload"
+  },
+  {
+    "id": "three-formats",
+    "claim": "The app creates ordered-step, exact-command, and image-hotspot drills.",
+    "where": "landing, demo, README",
+    "test": "npm run test:claims -- --grep @claim:three-formats",
+    "sandbox": "fresh /demo; open each of the three seeded formats and assert its distinct practice task"
+  }
+]

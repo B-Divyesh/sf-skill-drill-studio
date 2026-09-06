@@ -1,5 +1,5 @@
 {
-  "navigationFallback": { "rewrite": "/index.html", "exclude": ["/assets/*", "/*.svg", "/*.js", "/*.css"] },
+  "navigationFallback": { "rewrite": "/index.html", "exclude": ["/assets/*", "/*.svg", "/*.png", "/*.jpg", "/*.js", "/*.css", "/*.txt", "/*.xml"] },
   "routes": [
     {
       "route": "/assets/*.{js,css}",
@@ -10,15 +10,40 @@
       "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
     },
     {
-      "route": "/*",
+      "route": "/assets/*",
+      "headers": { "Cache-Control": "public, max-age=604800" }
+    },
+    {
+      "route": "/",
+      "rewrite": "/index.html",
       "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
+    },
+    { "route": "/demo", "rewrite": "/index.html" },
+    { "route": "/demo/*", "rewrite": "/index.html" },
+    { "route": "/privacy", "rewrite": "/index.html" },
+    { "route": "/terms", "rewrite": "/index.html" },
+    { "route": "/studio", "rewrite": "/index.html" },
+    { "route": "/play", "rewrite": "/index.html" },
+    { "route": "/index.html", "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } },
+    { "route": "/404.html", "headers": { "Cache-Control": "public, max-age=0, must-revalidate" } },
+    { "route": "/404.css", "headers": { "Cache-Control": "public, max-age=604800" } },
+    { "route": "/favicon.svg", "headers": { "Cache-Control": "public, max-age=604800" } },
+    { "route": "/apple-touch-icon.png", "headers": { "Cache-Control": "public, max-age=604800" } },
+    { "route": "/robots.txt", "headers": { "Cache-Control": "public, max-age=86400" } },
+    { "route": "/sitemap.xml", "headers": { "Cache-Control": "public, max-age=86400" } },
+    {
+      "route": "/*",
+      "statusCode": 404
     }
   ],
+  "responseOverrides": {
+    "404": { "rewrite": "/404.html" }
+  },
   "globalHeaders": {
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "strict-origin-when-cross-origin",
     "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
-    "Content-Security-Policy": "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    "Content-Security-Policy": "default-src 'self'; img-src 'self' data: blob:; font-src 'self'; style-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
   },
   "mimeTypes": { ".json": "application/json" }
 }

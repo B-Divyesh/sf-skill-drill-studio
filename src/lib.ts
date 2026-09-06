@@ -34,9 +34,9 @@ export const starterDrills: Drill[] = [
     schema: 1,
     id: 'sample-ordered',
     kind: 'ordered',
-    title: 'Secure the field station',
-    instructions: 'Put the shutdown steps in the safest order.',
-    items: ['Save the observation log', 'Power down the radio', 'Cover the chart table', 'Lock the outer hatch']
+    title: 'Prepare a microscope slide',
+    instructions: 'Put the slide preparation steps in the correct order.',
+    items: ['Clean the glass slide', 'Place the sample in the center', 'Add one drop of mounting liquid', 'Lower the cover slip at an angle']
   },
   {
     schema: 1,

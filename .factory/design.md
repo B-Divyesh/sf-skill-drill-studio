@@ -4,7 +4,7 @@
 
 Skill Drill Studio is a cinematic environmental workspace: a quiet field station at blue hour where a learner repeats small, precise actions until a path becomes familiar. It is not a dashboard theme. The interface uses a deep, single-mode nocturnal treatment so authored material feels like the illuminated workbench and controls feel like physical instruments. Amber path lights denote the next action; mineral teal confirms a correct action; coral is reserved for repair.
 
-The hero is an original wide environmental illustration of a cliffside practice observatory. Three stations connected by a lit trail stand for sequence, command, and hotspot drills. The scene explains the product's central idea—make a route, walk it, improve—without pretending that the product simulates code execution.
+The hero is an original wide environmental illustration of a cliffside practice observatory. Three stations distinguish sequence, command, and hotspot drills. Product copy names those jobs directly; the environmental idea remains visual rather than becoming interface lore.
 
 ## Tokens
 
@@ -45,5 +45,4 @@ Hero prompt sheet:
 - Palette words: midnight spruce, slate teal, parchment, controlled amber, mineral mint.
 - Negative list: no text, watermark, logos, brands, people, screens with legible UI, neon cyberpunk, fantasy castle, generic office, gradients.
 
-The raster hero is generated for this product with the factory Azure image deployment (`factory-image`) on 2026-08-27 using the prompt above, then reviewed and converted locally to responsive WebP. It is original generated imagery, disclosed in the footer. Product icons and the hotspot sample are original SVG/CSS geometry authored in-repository under the project's MIT license.
-
+The raster hero is generated for this product with the factory Azure image deployment (`factory-image`) on 2026-08-27 using the prompt above, then reviewed and converted locally to responsive WebP. It is original generated imagery, disclosed in the footer. The 1200 × 630 social image is a center crop of that original hero, made locally on 2026-09-06. The 180 px touch icon is drawn from the product's authored mountain mark and palette. Product icons and the hotspot sample are original SVG/CSS geometry authored in-repository under the project's MIT license.
